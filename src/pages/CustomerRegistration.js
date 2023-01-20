@@ -7,13 +7,15 @@ import FormControlLabel from '@material-ui/core/FormControlLabel';
 import FormControl from '@material-ui/core/FormControl';
 import FormLabel from '@material-ui/core/FormLabel';
 import Checkbox from '@material-ui/core/Checkbox';
-import { Formik, Field, Form, ErrorMessage } from 'formik'
-import * as Yup from 'yup'
-import {FormHelperText} from '@material-ui/core'
+import { Formik, Field, Form, ErrorMessage } from 'formik';
+import * as Yup from 'yup';
+import {FormHelperText} from '@material-ui/core';
 import { useNavigate } from 'react-router-dom';
+import '../App.css';
+import Navbar from '../components/Nav';
+
 const Signup = () => {
-    
-    const paperStyle = { padding: 20, width: 300, margin: "50px 0 0 35%" }
+    const paperStyle = { padding: 20, width: 400, margin: "0 0 0 35%" }
     const headerStyle = { margin: 0 }
     const avatarStyle = { backgroundColor: '#1bbd7e' }
     const marginTop = { marginTop: 5 }
@@ -62,6 +64,8 @@ const Signup = () => {
         });
     }
     return (
+        <>
+        <Navbar/>
         <Grid>
             <Paper style={paperStyle}>
                 <Grid align='center'>
@@ -100,6 +104,7 @@ const Signup = () => {
                 </Formik>
             </Paper>
         </Grid>
+        </>
     )
 }
 

@@ -8,7 +8,7 @@ import Slider from '../components/Slider';
 import Product from '../components/Product';
 
 
-const Home = () => {
+const Landing = () => {
   return (
     <div>
       <NavBar/>
@@ -18,4 +18,4 @@ const Home = () => {
   );
 }
 
-export default Home;
+export default Landing;

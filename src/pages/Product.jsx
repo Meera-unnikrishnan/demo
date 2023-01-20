@@ -5,7 +5,7 @@ import React from 'react';
 function Product() {
   return (
     <div>
-      <ProductDetails/>
+      <ProductDetails productId = {1}/>
     </div>
   );
 }

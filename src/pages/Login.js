@@ -6,10 +6,13 @@ import Checkbox from '@material-ui/core/Checkbox';
 import { Formik, Form, Field, ErrorMessage } from 'formik'
 import * as Yup from 'yup'
 import { useNavigate } from 'react-router-dom';
+import '../App.css';
+import Navbar from '../components/Nav';
+import {FormHelperText} from '@material-ui/core'
 
 
 const Login = () => {
-    const paperStyle = { padding: 20, height: '70vh', width: 280, margin: "20px auto" }
+    const paperStyle = { padding: 20, height: '70vh', width: 350, margin: "20px auto" }
     const avatarStyle = { backgroundColor: '#1bbd7e' }
     const bstyle = { margin: '8px 0' }
     const initialValues = {
@@ -19,7 +22,8 @@ const Login = () => {
     }
     const validationSchema = Yup.object().shape({
         Username: Yup.string().email('please enter valid email').required("Required"),
-        Password: Yup.string().min(8).max(12).required("Required")
+        Password: Yup.string().min(8).max(12).required("Required"),
+        Rememberme:Yup.string().oneOf(["true"],"Please Tick the Checkbox")
     })
     const navigate= useNavigate()
     const onSubmit = ( props) => {
@@ -29,7 +33,7 @@ const Login = () => {
         //     props.setSubmitting(false)
         // }, 2000)
         console.log(props)
-        navigate('/category');
+        navigate('/home');
         // fetch("http://localhost:3000/user",{
 
         //     method:"POST",
@@ -52,6 +56,8 @@ const Login = () => {
        
     }
     return (
+        <>
+        <Navbar/>
         <Grid>
             <Paper elevation={10} style={paperStyle}>
                 <Grid align='center'>
@@ -66,17 +72,11 @@ const Login = () => {
                             />
                             <Field as={TextField} label='Password' name='Password' placeholder='Enter Password' type='Password' fullWidth required helperText={<ErrorMessage name="Password"/>}
                             />
-                            <Field as={FormControlLabel}
-                                name='Rememberme'
-                                control={
-                                    <Checkbox
-
-
-                                        color="primary"
-                                    />
-                                }
-                                label="Remember me"
-                            />
+                            <FormControlLabel
+                            control={<Field as={Checkbox} name="Rememberme" />}
+                            label="Remember Me"
+                        />
+                        <FormHelperText>{<ErrorMessage name="Rememberme" />}</FormHelperText>
                             <Button type='submit' color='primary' variant='contained' disabled={props.isSubmitting} style={bstyle} fullWidth>{props.isSubmitting ? "Loading" : "Sign in"}</Button>
 
                         </Form>
@@ -89,12 +89,13 @@ const Login = () => {
                     </Link>
                 </Typography>
                 <Typography>   Do you have an account ?
-                    <Link href="#" >
+                    <Link href="/registration" >
                         Sign Up
                     </Link>
                 </Typography>
             </Paper>
         </Grid>
+        </>
 
     )
 }

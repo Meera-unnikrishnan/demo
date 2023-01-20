@@ -3,7 +3,9 @@ import styled from 'styled-components'
 import {Search,ShoppingCartOutlined} from "@mui/icons-material";
 import Badge from '@mui/material/Badge';
 import Nav from "react-bootstrap/Nav";
-import Navbar from "react-bootstrap/Navbar";
+import logo from '../images/E-kart-logo.png'
+// import Navbar from "react-bootstrap/Navbar";
+
 
 
 const Container = styled.div`
@@ -35,6 +37,8 @@ flex:1;
 display:flex;
 align-items:center;
 `;
+
+
 const SearchContainer=styled.div`
     border  :0.5px solid lightgray;
     display:flex;
@@ -54,27 +58,23 @@ const Right=styled.div`
    
 ;
 const NavBar = () => {
+ 
   return (
     
     <Container>
     <Wrapper>
       <Left>
-      <SearchContainer>
-       <Input/>
-      <Search style={{color:"gray",fontSize:16}}/>
-      </SearchContainer>
+      
+      <img src={logo} style={{width:"150px",height:"50px"}}></img>
+     
       </Left>
       <Center><Logo>E-KART</Logo></Center>
       <Right>
       <Nav>
-      <Nav.Link href="registration" className="nav-links"><MenuItem>REGISTER</MenuItem></Nav.Link>
-      <Nav.Link href="login" className="nav-links" ><MenuItem>SIGNIN</MenuItem></Nav.Link>
+      <Nav.Link href="registration" className="nav-links"style={{color:'black'}}><MenuItem>REGISTER</MenuItem></Nav.Link>
+      <Nav.Link href="login" className="nav-links"style={{color:'black'}} ><MenuItem>SIGNIN</MenuItem></Nav.Link>
       </Nav>
-      <MenuItem>
-      <Badge badgeContent={""} color="primary">
-      <ShoppingCartOutlined/>
-      </Badge>
-      </MenuItem>
+      
       </Right>
     </Wrapper>
     </Container>

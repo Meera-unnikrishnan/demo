@@ -1,14 +1,5 @@
 {
   "user": [
-    {
-      "name": "joyaljohnson",
-      "email": "joy@gmail.com",
-      "gender": "male",
-      "phoneNumber": "1234567895",
-      "password": "123456789",
-      "confirmPassword": "123456789",
-      "termsAndConditions": true,
-      "id": 1
-    }
+    
   ]
 }
